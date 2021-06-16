@@ -67,7 +67,7 @@ jobs:
 
           echo $TAG_NAME
           
-      - name: matrix test
+      - name: matrix test ${{ matrix.hub }}
         run: |
-          echo "running nix-build ${{ matrix.arch }} to upload to ${{ matrix.hub }} as ${{ matrix.username }}"
+          echo "running nix-build ${{ matrix.arch }} uploading as ${{ matrix.username }}"
     
