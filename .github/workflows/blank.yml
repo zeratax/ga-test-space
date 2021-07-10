@@ -70,4 +70,6 @@ jobs:
       - name: matrix test ${{ matrix.hub }}
         run: |
           echo "running nix-build ${{ matrix.arch }} uploading as ${{ matrix.username }}"
+          echo "user ${{secrets.GITHUB_USERNAME}}"
+          echo "actor ${{secrets.GITHUB_ACTOR}}"
     
