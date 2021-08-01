@@ -16,17 +16,17 @@ jobs:
       matrix:
         arch:
             - 'import <nixpkgs> {}'
-            - 'import <nixpkgs> { crossSystem.config = "aarch64-unknown-linux-gnu"; }'
+            # - 'import <nixpkgs> { crossSystem.config = "aarch64-unknown-linux-gnu"; }'
         hub: [Github, Docker]
         include:
         - hub: Github
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: test123
-        - hub: Docker
-          registry: docker.io
-          username: not-zeratax
-          password: secret123
+        # - hub: Docker
+        #   registry: docker.io
+        #   username: not-zeratax
+        #  password: secret123
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -76,7 +76,6 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{needs.build.vars.tag}}
     
     steps:
       - run: echo $tag
