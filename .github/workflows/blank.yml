@@ -76,7 +76,7 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(needs.build.vars.tag, 'v')
+    if: needs.build.vars.tag != ''
     
     steps:
       - run: echo $tag
